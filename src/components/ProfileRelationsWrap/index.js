@@ -4,24 +4,35 @@ import { Box } from '../Box';
 export const ProfileRelationsWrap = styled(Box)`
   ul {
     display: grid;
-    grid-gap: 8px;
+    grid-gap: 1.5rem;
     grid-template-columns: 1fr 1fr 1fr; 
-    max-height: 220px;
+    max-height: 35rem;
     list-style: none;
+    @media(max-width:500px){
+      grid-template-columns: 1fr 1fr;
+    }
   }
   img {
+    border-radius: 1rem;
     object-fit: cover;
     background-position: center center;
     width: 100%;
     height: 100%;
     position: relative;
   }
+
+  span{
+    display: flex;
+    justify-content: center;
+    margin: 0.1rem 0 1rem 0;
+  }
+
   ul li a {
     display: inline-block;
     height: 102px;
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     span {
       color: #FFFFFF;
       font-size: 10px;

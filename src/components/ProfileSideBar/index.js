@@ -1,9 +1,12 @@
+import useUser from "../../hooks/useUser";
 import { Box } from "../Box"
 
-function ProfileSideBar(props) {
+function ProfileSideBar() {
+  const { user } = useUser();
+
   return (
     <Box>
-      <img src={`https://github.com/${props.githubUser}.png`} />
+      <img src={user.avatar_url} />
     </Box>
   )
 }

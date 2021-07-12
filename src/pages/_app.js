@@ -2,13 +2,17 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from '../styles/global'
 import { theme } from '../styles/theme'
+import { UserContextProvider } from '../contexts/UserProvider'
 
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <GlobalStyle />
+
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <UserContextProvider>
+          <Component {...pageProps} />
+          <GlobalStyle />
+        </UserContextProvider>
       </ThemeProvider>
     </>
   )

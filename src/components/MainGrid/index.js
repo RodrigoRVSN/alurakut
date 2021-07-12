@@ -5,7 +5,7 @@ export const MainGrid = styled.main`
   grid-gap: 0.6rem;
   padding: 1rem;
   margin: 0 auto 0 auto;
-  max-width: 31.25rem;
+  max-width: 40rem;
   .profileArea{
     display: none;
     @media(min-width: 860px){
@@ -16,6 +16,6 @@ export const MainGrid = styled.main`
       max-width: 69.4rem;
       display: grid;
       grid-template-areas: "profileArea welcomeArea profileRelationsArea";
-      grid-template-columns: 10rem 1fr 19.5rem;
+      grid-template-columns: 10rem 1fr 22.5rem;
   }
 `
