@@ -22,7 +22,6 @@ export function UserContextProvider({ children }) {
           },
         })
         .then((response) => {
-          console.log(response.data)
           setFollowing(response.data)
         })
     }
