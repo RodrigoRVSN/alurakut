@@ -11,8 +11,11 @@ function FollowingWrap() {
         {listFollowing.map((item) => {
           return (
             <li key={item.id}>
-              <img src={item.avatar_url} />
-              <span>{item.login}</span>
+              <a href={`/users/${item.login}`}>
+
+                <img src={item.avatar_url} />
+                <span>{item.login}</span>
+              </a>
             </li>
           )
         })}

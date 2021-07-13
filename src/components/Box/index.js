@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Box = styled.div` 
- background: #FFFFFF;
+ background: #e9ecef;
   border-radius: 8px;
   padding: 1rem;
   /* CSS Pré-Pronto */
@@ -37,7 +37,7 @@ export const Box = styled.div`
   }
   input {
     width: 100%;
-    background-color: #F4F4F4;
+    background-color: #fff;
     color: #333333;
     border: 0;
     padding: 14px 16px;
@@ -51,9 +51,9 @@ export const Box = styled.div`
   button {
     border: 0;
     padding: 8px 12px;
-    color: #FFFFFF;
+    color: #fca311;
     border-radius: 10000px;
-    background-color: #6F92BB;
+    background-color: #000;
   }
 
 `

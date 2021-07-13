@@ -9,7 +9,9 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background: #D9E6F6;
+      background: linear-gradient(rgba(0,0,0,.22),rgba(0,0,0,.52)80%), url('https://images3.alphacoders.com/905/905410.jpg');
+    background-size: cover;
+    background-position: center;
     font-family: sans-serif;
   } 
   

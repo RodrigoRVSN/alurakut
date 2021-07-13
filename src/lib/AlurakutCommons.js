@@ -25,7 +25,6 @@ export function AlurakutMenu({ githubUser }) {
     <AlurakutMenu.Wrapper isMenuOpen={isMenuOpen}>
       <div className="container">
         <h2>Yorkut</h2>
-
         <nav style={{ flex: 1 }}>
           {[{ name: 'Inicio', slug: '/' }, { name: 'Amigos', slug: '/amigos' }, { name: 'Comunidades', slug: '/comunidades' }].map((menuItem) => (
             <Link key={`key__${menuItem.name.toLocaleLowerCase()}`} href={`${menuItem.slug.toLocaleLowerCase()}`}>
@@ -39,7 +38,7 @@ export function AlurakutMenu({ githubUser }) {
             Sair
           </a>
           <div>
-            <input placeholder="Pesquisar no Orkut" />
+            <input placeholder="Pesquisar no Yorkut" />
           </div>
         </nav>
 
@@ -56,14 +55,14 @@ AlurakutMenu.Wrapper = styled.header`
   width: 100%;
   background-color: #308BC5;
   .alurakutMenuProfileSidebar {
-    background: white;
+    background: #000;
     position: fixed;
     z-index: 100;
     padding: 46px;
     bottom: 0;
     left: 0;
     right: 0;
-    top: 48px;
+    top: 0;
     transition: .3s;
     pointer-events: ${({ isMenuOpen }) => isMenuOpen ? 'all' : 'none'};
     opacity: ${({ isMenuOpen }) => isMenuOpen ? '1' : '0'};
@@ -93,9 +92,9 @@ AlurakutMenu.Wrapper = styled.header`
     }
   }
   .container {
-    background-color: #308BC5;
-    padding: 7px 16px;
-    max-width: 1110px;
+    background-color: #000000;
+    color: #fca311;
+    padding: 1rem 2rem;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -103,6 +102,9 @@ AlurakutMenu.Wrapper = styled.header`
     z-index: 101;
     @media(min-width: 860px) {
       justify-content: flex-start;
+    }
+    h2{
+      margin-right: 2rem;
     }
     button {
       border: 0;
@@ -120,7 +122,7 @@ AlurakutMenu.Wrapper = styled.header`
       }
       a {
         font-size: 12px;
-        color: white;
+        color: #fca311;
         padding: 10px 16px;
         position: relative;
         text-decoration: none;
@@ -139,8 +141,8 @@ AlurakutMenu.Wrapper = styled.header`
       }
     }
     input {
-      color: #ffffff;
-      background: #5579A1;
+      color: #fca311;
+      background: #000;
       padding: 10px 42px;
       border: 0;
       background-image: url(${`${BASE_URL}/icons/search.svg`});
@@ -149,14 +151,14 @@ AlurakutMenu.Wrapper = styled.header`
       border-radius: 1000px;
       font-size: 12px;
       ::placeholder {
-        color: #ffffff;
+        color: #fca311;
         opacity: 1;
       }
     } 
   }
 `;
 AlurakutMenu.Logo = styled.img`
-  background-color: #ffffff;
+  background-color: #fca311;
   padding: 9px 14px;
   border-radius: 1000px;
   height: 34px;
@@ -322,14 +324,14 @@ const AlurakutLoginScreen = css`
   :root {
     --backgroundPrimary: #D9E6F6;
     --backgroundSecondary: #F1F9FE;
-    --backgroundTertiary: #FFFFFF;
+    --backgroundTertiary: #fca311;
     --backgroundQuarternary: #BBCDE8;
     --colorPrimary: #2E7BB4;
     --colorSecondary: #388BB0;
     --colorTertiary: #2F4A71;
     --colorQuarternary: #D81D99;
     --textPrimaryColor: #333333;
-    --textSecondaryColor: #FFFFFF;
+    --textSecondaryColor: #fca311;
     --textTertiaryColor: #5A5A5A;
     --textQuarternaryColor: #C5C6CA;
     --commonRadius: 8px;

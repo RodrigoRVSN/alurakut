@@ -4,7 +4,7 @@ import { Box } from '../Box';
 export const ProfileRelationsWrap = styled(Box)`
   ul {
     display: grid;
-    grid-gap: 1.5rem;
+    grid-gap: 1.25rem;
     grid-template-columns: 1fr 1fr 1fr; 
     max-height: 35rem;
     list-style: none;
@@ -24,7 +24,7 @@ export const ProfileRelationsWrap = styled(Box)`
   span{
     display: flex;
     justify-content: center;
-    margin: 0.1rem 0 1rem 0;
+    margin: 0.1rem 0 0.1rem 0;
   }
 
   ul li a {

@@ -13,9 +13,9 @@ export const MainGrid = styled.main`
     }
   }
     @media(min-width: 860px){
-      max-width: 69.4rem;
+      max-width: 90rem;
       display: grid;
       grid-template-areas: "profileArea welcomeArea profileRelationsArea";
-      grid-template-columns: 10rem 1fr 22.5rem;
+      grid-template-columns: 12rem 1fr 25.5rem;
   }
 `
