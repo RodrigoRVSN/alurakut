@@ -9,6 +9,17 @@ import useUser from '../hooks/useUser'
 import FormCommunity from '../components/FormCommunity'
 import { getAllCommunities } from '../lib/dato-cms'
 
+
+export const getStaticProps = async () => {
+  const communitysCms = await getAllCommunities()
+  return {
+    props: {
+      communitysCms,
+    },
+    revalidate: 120,
+  }
+}
+
 export default function Home(communitysCms) {
   const { user, follower, following } = useUser();
 
@@ -50,16 +61,4 @@ export default function Home(communitysCms) {
     </>
 
   )
-}
-
-export const getStaticProps = async () => {
-  const communitysCms = await getAllCommunities()
-  console.log(communitysCms)
-  console.log(communitysCms)
-  return {
-    props: {
-      communitysCms,
-    },
-    revalidate: 120,
-  }
 }
