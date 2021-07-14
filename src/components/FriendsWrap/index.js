@@ -1,9 +1,8 @@
-import useUser from "../../hooks/useUser"
 import { ProfileRelationsWrap } from "../ProfileRelationsWrap"
 
 function FriendsWrap(props) {
   const listFriends = props.items.slice(0, 6)
-  console.log(props.items)
+
   return (
     <ProfileRelationsWrap >
       <h2 className='smallTitle'>{props.title} ({props.items.length})</h2>

@@ -7,8 +7,9 @@ import FriendsWrap from '../components/FriendsWrap'
 import CommunityWrap from '../components/CommunityWrap'
 import useUser from '../hooks/useUser'
 import FormCommunity from '../components/FormCommunity'
+import { getAllCommunities } from '../lib/dato-cms'
 
-export default function Home() {
+export default function Home(communitysCms) {
   const { user, follower, following } = useUser();
 
   const [communitys, setCommunitys] = useState([
@@ -40,7 +41,7 @@ export default function Home() {
         </div>
 
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
-          <CommunityWrap communitys={communitys} />
+          <CommunityWrap communitysCms={communitysCms} />
           <FriendsWrap title="Seguindo" items={following} />
           <FriendsWrap title="Seguidores" items={follower} />
         </div>
@@ -49,4 +50,16 @@ export default function Home() {
     </>
 
   )
+}
+
+export const getStaticProps = async () => {
+  const communitysCms = await getAllCommunities()
+  console.log(communitysCms)
+  console.log(communitysCms)
+  return {
+    props: {
+      communitysCms,
+    },
+    revalidate: 120,
+  }
 }
