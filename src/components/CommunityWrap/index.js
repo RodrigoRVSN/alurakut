@@ -1,15 +1,15 @@
 import { ProfileRelationsWrap } from "../ProfileRelationsWrap"
 
-function CommunityWrap(communitys) {
+function CommunityWrap({ communitysCms }) {
   return (
     <ProfileRelationsWrap >
-      <h2 className='smallTitle'>Comunidades ({communitys?.communitys?.length})</h2>
+      <h2 className='smallTitle'>Comunidades ({communitysCms?.communitysCms?.length})</h2>
       <ul>
-        {communitys?.communitys?.map((item) => {
+        {communitysCms?.communitysCms?.map((item) => {
           return (
             <li key={item.id}>
               <a href={item.group} target="_blank">
-                <img src={item.image} />
+                <img src={item.imageUrl} />
 
                 <span>{item.title}</span>
               </a>
