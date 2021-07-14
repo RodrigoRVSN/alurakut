@@ -1,17 +1,17 @@
 import useUser from "../../hooks/useUser"
 import { ProfileRelationsWrap } from "../ProfileRelationsWrap"
 
-function FollowingWrap() {
-  const { following } = useUser()
-  const listFollowing = following.slice(0, 6)
+function FriendsWrap(props) {
+  const listFriends = props.items.slice(0, 6)
+  console.log(props.items)
   return (
     <ProfileRelationsWrap >
-      <h2 className='smallTitle'>Seguindo ({following.length})</h2>
+      <h2 className='smallTitle'>{props.title} ({props.items.length})</h2>
       <ul>
-        {listFollowing.map((item) => {
+        {listFriends.map((item) => {
           return (
             <li key={item.id}>
-              <a href={`/users/${item.login}`}>
+              <a href={`https://github.com/${item.login}`}>
 
                 <img src={item.avatar_url} />
                 <span>{item.login}</span>
@@ -24,4 +24,4 @@ function FollowingWrap() {
   )
 }
 
-export default FollowingWrap
+export default FriendsWrap

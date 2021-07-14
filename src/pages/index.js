@@ -3,13 +3,13 @@ import { Box } from '../components/Box'
 import { MainGrid } from '../components/MainGrid'
 import ProfileSideBar from '../components/ProfileSideBar'
 import { AlurakutMenu, OrkutNostalgicIconSet } from '../lib/AlurakutCommons'
-import FollowingWrap from '../components/FollowingWrap'
+import FriendsWrap from '../components/FriendsWrap'
 import CommunityWrap from '../components/CommunityWrap'
 import useUser from '../hooks/useUser'
 import FormCommunity from '../components/FormCommunity'
 
 export default function Home() {
-  const { user } = useUser();
+  const { user, follower, following } = useUser();
 
   const [communitys, setCommunitys] = useState([
     {
@@ -41,7 +41,8 @@ export default function Home() {
 
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
           <CommunityWrap communitys={communitys} />
-          <FollowingWrap />
+          <FriendsWrap title="Seguindo" items={following} />
+          <FriendsWrap title="Seguidores" items={follower} />
         </div>
 
       </MainGrid>
