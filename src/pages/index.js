@@ -52,7 +52,7 @@ export default function Home(communitysCms) {
         </div>
 
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
-          <CommunityWrap communitysCms={communitysCms} />
+          <CommunityWrap communitysCms={communitysCms || null} />
           <FriendsWrap title="Seguindo" items={following} />
           <FriendsWrap title="Seguidores" items={follower} />
         </div>
