@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box } from '../components/Box'
 import { MainGrid } from '../components/MainGrid'
 import ProfileSideBar from '../components/ProfileSideBar'
@@ -10,26 +10,17 @@ import FormCommunity from '../components/FormCommunity'
 import { getAllCommunities } from '../lib/dato-cms'
 
 
-export const getStaticProps = async () => {
-  const communitysCms = await getAllCommunities()
-  return {
-    props: {
-      communitysCms,
-    },
-    revalidate: 120,
-  }
-}
+export default function Home() {
 
-export default function Home(communitysCms) {
   const { user, follower, following } = useUser();
+  const [communitys, setCommunitys] = useState([]);
 
-  const [communitys, setCommunitys] = useState([
-    {
-      id: '1616516565165165',
-      title: 'Eu amo acordar cedo',
-      image: 'https://alurakut.vercel.app/capa-comunidade-01.jpg',
-      group: ''
-    },]);
+  useEffect(() => {
+    async function getAll() {
+      setCommunitys(await getAllCommunities())
+    }
+    getAll()
+  }, [communitys])
 
   return (
     <>
@@ -52,7 +43,7 @@ export default function Home(communitysCms) {
         </div>
 
         <div className="profileRelationsArea" style={{ gridArea: 'profileRelationsArea' }}>
-          <CommunityWrap communitysCms={communitysCms} />
+          <CommunityWrap communitys={communitys} />
           <FriendsWrap title="Seguindo" items={following} />
           <FriendsWrap title="Seguidores" items={follower} />
         </div>

@@ -1,12 +1,16 @@
+
+
 const API_URL = 'https://graphql.datocms.com/'
-const API_TOKEN = process.env.DATOCMS_READ_ONLY_API_TOKEN
+const API_TOKEN = '2a561832e9baec09e4dac70a33f82c'
+
 
 async function fetchCmsAPI(query, { variables } = {}) {
   const res = await fetch(API_URL, {
     method: 'POST',
     headers: {
+      'Authorization': API_TOKEN,
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${API_TOKEN}`,
+      'Accept': 'application/json'
     },
     body: JSON.stringify({
       query,
@@ -18,23 +22,20 @@ async function fetchCmsAPI(query, { variables } = {}) {
   if (json.errors) {
     throw new Error('Failed to fetch API');
   }
-
   return json.data;
 }
 
 export async function getAllCommunities() {
   const data = await fetchCmsAPI(`
     {
-      allCommunities {
-        id
+      allCommunities{
         title
         imageUrl
         group
-        _status
+        creatorSlug
       }
     }
   `);
-
   return data.allCommunities;
 }
 

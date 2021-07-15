@@ -4,12 +4,24 @@ function FormCommunity(props) {
     e.preventDefault()
     const dataForm = new FormData(e.target);
     const community = {
-      id: new Date().toISOString(),
       title: dataForm.get('title'),
-      image: dataForm.get('image'),
-      group: dataForm.get('group')
+      imageUrl: dataForm.get('image'),
+      group: dataForm.get('group'),
+      creatorSlug: 'a'
     }
-    props.setCommunitys([...props.communitys, community])
+
+    fetch('/api/communitys', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(community)
+    }).then(async (res) => {
+      const data = await res.json()
+      const community = data.registerCreated
+      props.setCommunitys([...props.communitys, community])
+    })
+
   }
 
   return (
