@@ -11,7 +11,6 @@ import CommunityWrap from '../components/CommunityWrap'
 import useUser from '../hooks/useUser'
 import FormCommunity from '../components/FormCommunity'
 import { getAllCommunities } from '../lib/dato-cms'
-import { toast } from 'react-toastify'
 
 
 export default function Home(props) {
@@ -22,6 +21,7 @@ export default function Home(props) {
   useEffect(() => {
     setGithubUser(props.githubUser)
     setIsAuth(true)
+
     async function getAll() {
       setCommunitys(await getAllCommunities())
     }

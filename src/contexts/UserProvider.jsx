@@ -36,6 +36,7 @@ export function UserContextProvider({ children }) {
     <UserContext.Provider
       value={{
         user,
+        githubUser,
         setGithubUser,
         setIsAuth,
         following,

@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import NextLink from 'next/link';
 import { destroyCookie } from 'nookies';
 import { useRouter } from 'next/router';
+import useUser from '../hooks/useUser';
 
 const BASE_URL = 'http://alurakut.vercel.app/';
 const v = '1';
@@ -24,9 +25,12 @@ function Link({ href, children, ...props }) {
 export function AlurakutMenu({ githubUser }) {
   const [isMenuOpen, setMenuState] = React.useState(false);
   const router = useRouter()
+  const { setGithubUser, setIsAuth } = useUser();
 
   function handleLogout() {
     destroyCookie(null, 'USER_TOKEN', { path: '/', maxAge: 86400 * 7 });
+    setGithubUser('')
+    setIsAuth(false)
     router.push('/login');
   }
 

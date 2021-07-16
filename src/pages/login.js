@@ -1,13 +1,19 @@
 import { useRouter } from 'next/router'
 import { useState } from "react";
 import nookies from 'nookies';
+import useUser from '../hooks/useUser';
+import { toast } from 'react-toastify';
 
 export default function LoginPage() {
   const [gitUser, setGitUser] = useState('')
+
+  const { githubUser } = useUser();
+
   const router = useRouter()
 
   function handleSubmit(e) {
     e.preventDefault()
+
     fetch('https://alurakut.vercel.app/api/login', {
       method: 'POST',
       headers: {
@@ -17,8 +23,11 @@ export default function LoginPage() {
     }).then(async (res) => {
       const data = await res.json()
       nookies.set(null, 'USER_TOKEN', data.token, { path: '/', maxAge: 86400 * 7 });
+      if (!githubUser) {
+        toast.error('Usuário não existe!')
+      }
       router.push('/')
-    }).catch((err) => console.log(err))
+    })
   }
 
   return (
@@ -26,7 +35,7 @@ export default function LoginPage() {
       <main style={{ display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <div className="loginScreen">
           <section className="logoArea">
-            <img src="https://alurakut.vercel.app/logo.svg" />
+            <h2 className="title">Yorkut</h2>
 
             <p><strong>Conecte-se</strong> aos seus amigos e familiares usando recados e mensagens instantâneas</p>
             <p><strong>Conheça</strong> novas pessoas através de amigos de seus amigos e comunidades</p>
