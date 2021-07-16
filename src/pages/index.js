@@ -83,7 +83,7 @@ export async function getServerSideProps(ctx) {
   }
 
   const { githubUser } = jwt.decode(token);
-  
+
   return {
     props: {
       githubUser
