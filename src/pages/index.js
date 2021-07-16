@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import nookies from 'nookies'
+import jwt from 'jsonwebtoken'
+
 import { Box } from '../components/Box'
 import { MainGrid } from '../components/MainGrid'
 import ProfileSideBar from '../components/ProfileSideBar'
@@ -8,19 +11,22 @@ import CommunityWrap from '../components/CommunityWrap'
 import useUser from '../hooks/useUser'
 import FormCommunity from '../components/FormCommunity'
 import { getAllCommunities } from '../lib/dato-cms'
+import { toast } from 'react-toastify'
 
 
-export default function Home() {
+export default function Home(props) {
 
-  const { user, follower, following } = useUser();
+  const { user, setGithubUser, setIsAuth, follower, following } = useUser();
   const [communitys, setCommunitys] = useState([]);
 
   useEffect(() => {
+    setGithubUser(props.githubUser)
+    setIsAuth(true)
     async function getAll() {
       setCommunitys(await getAllCommunities())
     }
     getAll()
-  }, [communitys])
+  }, [])
 
   return (
     <>
@@ -52,4 +58,35 @@ export default function Home() {
     </>
 
   )
+}
+
+export async function getServerSideProps(ctx) {
+
+  const cookies = nookies.get(ctx);
+  const token = cookies.USER_TOKEN;
+
+  const { isAuthenticated } = await fetch('https://alurakut.vercel.app/api/auth', {
+    headers: {
+      Authorization: token
+    }
+  })
+    .then((res) => res.json())
+
+  if (!isAuthenticated) {
+
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false
+      }
+    }
+  }
+
+  const { githubUser } = jwt.decode(token);
+  
+  return {
+    props: {
+      githubUser
+    }
+  }
 }

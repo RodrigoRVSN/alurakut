@@ -7,7 +7,7 @@ function CommunityWrap(communitys) {
       <ul>
         {communitys?.communitys?.map((item) => {
           return (
-            <li key={item.id}>
+            <li key={item.title}>
               <a href={item.group} target="_blank">
                 <img src={item.imageUrl} />
 

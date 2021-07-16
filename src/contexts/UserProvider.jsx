@@ -4,37 +4,40 @@ import { api } from '../services/api'
 export const UserContext = createContext({})
 
 export function UserContextProvider({ children }) {
+  const [githubUser, setGithubUser] = useState('')
+  const [isAuth, setIsAuth] = useState(false)
   const [user, setUser] = useState('')
   const [following, setFollowing] = useState([])
   const [follower, setFollower] = useState([])
 
   useEffect(() => {
-    async function getUserInfo() {
-      await api.get(`/rodrigorvsn`).then((response) => {
-        setUser(response.data)
-      })
-    }
-    getUserInfo()
+    function verifyInfo() {
+      if (isAuth) {
+        async function getInfo() {
+          await api.get(`/${githubUser}`).then((response) => {
+            setUser(response.data)
+          })
 
-    async function getFollowingInfo() {
-      await api.get(`/rodrigorvsn/following`).then((response) => {
-        setFollowing(response.data)
-      })
-    }
-    getFollowingInfo()
+          await api.get(`/${githubUser}/following`).then((response) => {
+            setFollowing(response.data)
+          })
 
-    async function getFollowersInfo() {
-      await api.get(`/rodrigorvsn/followers`).then((response) => {
-        setFollower(response.data)
-      })
+          await api.get(`/${githubUser}/followers`).then((response) => {
+            setFollower(response.data)
+          })
+        }
+        getInfo()
+      }
     }
-    getFollowersInfo()
-  }, [])
+    verifyInfo()
+  }, [githubUser, isAuth])
 
   return (
     <UserContext.Provider
       value={{
         user,
+        setGithubUser,
+        setIsAuth,
         following,
         follower,
       }}
