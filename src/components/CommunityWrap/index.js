@@ -1,11 +1,14 @@
+import { useState } from "react"
 import { ProfileRelationsWrap } from "../ProfileRelationsWrap"
 
 function CommunityWrap(communitys) {
+  const [amount, setAmount] = useState(6)
+
   return (
     <ProfileRelationsWrap >
       <h2 className='smallTitle'>Comunidades ({communitys?.communitys?.length})</h2>
       <ul>
-        {communitys?.communitys?.map((item) => {
+        {communitys?.communitys?.slice(0, amount).map((item) => {
           return (
             <li key={item.title}>
               <a href={item.group} target="_blank">
@@ -17,6 +20,9 @@ function CommunityWrap(communitys) {
           )
         })}
       </ul>
+
+      {amount < 30 && communitys.length > 6 && <button onClick={() => setAmount(c => c + 6)}>Ver mais</button>}
+      {amount > 6 && <button onClick={() => setAmount(c => c - 6)}>Ver menos</button>}
     </ProfileRelationsWrap>
   )
 }

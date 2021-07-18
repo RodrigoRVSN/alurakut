@@ -1,7 +1,9 @@
+import { useState } from "react"
 import { ProfileRelationsWrap } from "../ProfileRelationsWrap"
 
 function FriendsWrap(props) {
-  const listFriends = props.items.slice(0, 6)
+  const [amount, setAmount] = useState(6)
+  const listFriends = props.items.slice(0, amount)
 
   return (
     <ProfileRelationsWrap >
@@ -10,8 +12,7 @@ function FriendsWrap(props) {
         {listFriends.map((item) => {
           return (
             <li key={item.id}>
-              <a href={`https://github.com/${item.login}`}>
-
+              <a target="_blank" href={`https://github.com/${item.login}`}>
                 <img src={item.avatar_url} />
                 <span>{item.login}</span>
               </a>
@@ -19,6 +20,8 @@ function FriendsWrap(props) {
           )
         })}
       </ul>
+      {amount < 30 && props.items.length > 6 && <button onClick={() => setAmount(c => c + 6)}>Ver mais</button>}
+      {amount > 6 && <button onClick={() => setAmount(c => c - 6)}>Ver menos</button>}
     </ProfileRelationsWrap>
   )
 }

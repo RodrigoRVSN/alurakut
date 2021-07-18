@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
-export const Box = styled.div` 
- background: #e9ecef;
+export const Box = styled.div`
+ background: #000;
   border-radius: 8px;
   padding: 1rem;
   /* CSS Pré-Pronto */
   margin-bottom: 16px;
+  color: #fca311;
   .boxLink {
     font-size: 14px;
-    color: #2E7BB4;
+    color: #fca311;
     text-decoration: none;
     font-weight: 800;
   }
@@ -18,15 +19,15 @@ export const Box = styled.div`
     margin-bottom: 20px;
   }
   .subTitle {
-    font-size: 18px;
+    font-size: 2rem;
     font-weight: 400;
-    margin-bottom: 20px;
+    margin: 2rem 1rem;
   }
   .smallTitle {
     margin-bottom: 20px;
     font-size: 16px;
     font-weight: 700;
-    color: #333333;
+    color: #fca311;
     margin-bottom: 20px;
   }
   hr {
@@ -37,23 +38,26 @@ export const Box = styled.div`
   }
   input {
     width: 100%;
-    background-color: #fff;
-    color: #333333;
+    background-color: #333333;
+    color: #fca311;
     border: 0;
     padding: 14px 16px;
     margin-bottom: 14px;
     border-radius: 10000px;
     ::placeholder {
-      color: #333333;
+      color: #fca311;
       opacity: 1;
     }
   }
   button {
     border: 0;
     padding: 8px 12px;
-    color: #fca311;
-    border-radius: 10000px;
-    background-color: #000;
+    background-color: #fca311;
+    border-radius: 100px;
+    color: #000;
+  }
+  img{
+    border-radius: 1rem;
   }
 
 `

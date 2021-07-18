@@ -5,12 +5,15 @@ export const ProfileRelationsWrap = styled(Box)`
   ul {
     display: grid;
     grid-gap: 1.25rem;
-    grid-template-columns: 1fr 1fr 1fr; 
-    max-height: 35rem;
+    grid-template-columns: 1fr 1fr 1fr;
     list-style: none;
+    margin-bottom: 1rem;
     @media(max-width:500px){
       grid-template-columns: 1fr 1fr;
     }
+  }
+  button:nth-last-child(2){
+    margin-right: 3rem;
   }
   img {
     border-radius: 1rem;
@@ -34,7 +37,8 @@ export const ProfileRelationsWrap = styled(Box)`
     overflow: hidden;
     border-radius: 0.5rem;
     span {
-      color: #FFFFFF;
+      color: #D81D99;
+      background-color: #000;
       font-size: 10px;
       position: absolute;
       left: 0;

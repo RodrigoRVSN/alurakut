@@ -92,7 +92,7 @@ AlurakutMenu.Wrapper = styled.header`
     }
     .boxLink {
       font-size: 18px;
-      color: #2E7BB4;
+      color: #fca311;
       -webkit-text-decoration: none;
       text-decoration: none;
       font-weight: 800;
@@ -237,7 +237,7 @@ export function AlurakutProfileSidebarMenuDefault() {
 AlurakutProfileSidebarMenuDefault.Wrapper = styled.div`
   a {
     font-size: 12px;
-    color: #2E7BB4;
+    color: #fca311;
     margin-bottom: 16px;
     display: flex;
     align-items: center;
@@ -305,7 +305,7 @@ OrkutNostalgicIconSet.List = styled.ul`
   flex-wrap: wrap;
   li {
     font-size: 12px;
-    color: #5A5A5A;
+    color: #D81D99;
     display: grid;
     grid-template-areas:
       "title title"
@@ -337,7 +337,7 @@ const AlurakutLoginScreen = css`
   :root {
     --backgroundPrimary: #D9E6F6;
     --backgroundSecondary: #F1F9FE;
-    --backgroundTertiary: #fca311;
+    --backgroundTertiary: #000;
     --backgroundQuarternary: #BBCDE8;
     --colorPrimary: #2E7BB4;
     --colorSecondary: #388BB0;
@@ -350,7 +350,8 @@ const AlurakutLoginScreen = css`
     --commonRadius: 8px;
   }
   .loginScreen {
-    padding: 16px;
+    color: var(--textSecondaryColor);
+    padding: 1rem;
     max-width: 1110px;
     display: grid;
     --gap: 12px;
@@ -392,9 +393,9 @@ const AlurakutLoginScreen = css`
           color: var(--colorQuarternary);
         }
       }
-      img {
-        max-height: 45px;
-        margin-bottom: 36px;
+      h2 {
+        font-size: 3rem;
+        margin-bottom: 5rem;
       }
     }
     .formArea {
@@ -411,7 +412,7 @@ const AlurakutLoginScreen = css`
         padding: var(--gutter);
         padding-left: 50px;
         padding-right: 50px;
-        background-color: var(--backgroundSecondary);
+        background-color: var(--backgroundTertiary);
         border-radius: var(--commonRadius);
         flex: 1;
         &:not(:last-child) {
@@ -424,11 +425,12 @@ const AlurakutLoginScreen = css`
           }
         }
         p {
-          font-size: 14px;
+          font-size: 1rem;
+          color: var(--textSecondaryColor);
         }
         a {
           text-decoration: none;
-          color: var(--colorPrimary);
+          color: var(--colorQuarternary);
         }
         input {
           width: 100%;
@@ -436,6 +438,7 @@ const AlurakutLoginScreen = css`
           border: 1px solid var(--textQuarternaryColor);
           padding: 12px;
           background-color: var(--backgroundTertiary);
+          color: var(----textSecondaryColor);
           border-radius: var(--commonRadius);
           margin-top: 24px;
           margin-bottom: 16px;
@@ -446,14 +449,19 @@ const AlurakutLoginScreen = css`
           border: 0;
           padding: 12px;
           border-radius: var(--commonRadius);
-          background-color: var(--colorPrimary);
-          color: var(--textSecondaryColor);
+          color: var(--backgroundTertiary);
+          background-color: var(--textSecondaryColor);
+          border: 2px solid var(--textSecondaryColor);
+          &:hover{
+            background-color: var(--backgroundTertiary);
+            color: var(--textSecondaryColor);
+          }
         }
       }
     }
     .footerArea {
       grid-area: footerArea;
-      background-color: var(--backgroundQuarternary);
+      background-color: var(--backgroundTertiary);
       border-radius: var(--commonRadius);
       padding: 8px;
       p {
@@ -461,7 +469,7 @@ const AlurakutLoginScreen = css`
         text-align: center;
         a {
           text-decoration: none;
-          color: var(--colorPrimary);
+          color: var(--textSecondaryColor);
         }
       }
     }
@@ -508,7 +516,7 @@ export const AlurakutStyles = css`
     }
     &:hover,
     &:focus {
-      box-shadow: 0px 0px 5px #33333357;
+      box-shadow: 0px 0px 5px var(--textSecondaryColor);
     }
   }
   ${AlurakutLoginScreen}

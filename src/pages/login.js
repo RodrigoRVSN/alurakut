@@ -1,13 +1,9 @@
 import { useRouter } from 'next/router'
 import { useState } from "react";
 import nookies from 'nookies';
-import useUser from '../hooks/useUser';
-import { toast } from 'react-toastify';
 
 export default function LoginPage() {
   const [gitUser, setGitUser] = useState('')
-
-  const { githubUser } = useUser();
 
   const router = useRouter()
 
@@ -23,9 +19,6 @@ export default function LoginPage() {
     }).then(async (res) => {
       const data = await res.json()
       nookies.set(null, 'USER_TOKEN', data.token, { path: '/', maxAge: 86400 * 7 });
-      if (!githubUser) {
-        toast.error('Usuário não existe!')
-      }
       router.push('/')
     })
   }

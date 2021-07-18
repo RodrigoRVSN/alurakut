@@ -39,7 +39,7 @@ export default function Home(props) {
         <div className="welcomeArea" style={{ gridArea: 'welcomeArea' }}>
           <Box >
             <h1 className="title">
-              Bem-vindo(a)
+              Bem-vindo(a) {user.login}
             </h1>
             <OrkutNostalgicIconSet />
           </Box>
@@ -73,7 +73,6 @@ export async function getServerSideProps(ctx) {
     .then((res) => res.json())
 
   if (!isAuthenticated) {
-
     return {
       redirect: {
         destination: '/login',

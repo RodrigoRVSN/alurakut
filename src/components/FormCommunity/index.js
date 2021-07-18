@@ -7,7 +7,7 @@ function FormCommunity(props) {
       title: dataForm.get('title'),
       imageUrl: dataForm.get('image'),
       group: dataForm.get('group'),
-      creatorSlug: 'a'
+      creatorSlug: 'RodrigoRVSN'
     }
 
     fetch('/api/communitys', {
@@ -26,7 +26,7 @@ function FormCommunity(props) {
 
   return (
     <>
-      <h2 className="subtitle">O que você deseja fazer?</h2>
+      <h2 className="subTitle">O que você deseja fazer?</h2>
       <form onSubmit={e => handleSubmitCommunity(e)}>
         <div>
           <input required placeholder="Qual vai ser o nome da sua comunidade?" name="title" aria-label="Qual vai ser o nome da sua comunidade?" type="text" />
