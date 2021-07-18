@@ -13,7 +13,10 @@ export const ProfileRelationsWrap = styled(Box)`
     }
   }
   button:nth-last-child(2){
-    margin-right: 3rem;
+    margin-right: 10%;
+  }
+  button:nth-last-child(3){
+    margin-right: 10%;
   }
   img {
     border-radius: 1rem;
