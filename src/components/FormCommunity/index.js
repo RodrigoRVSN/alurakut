@@ -26,7 +26,6 @@ function FormCommunity(props) {
 
   return (
     <>
-      <h2 className="subTitle">O que você deseja fazer?</h2>
       <form onSubmit={e => handleSubmitCommunity(e)}>
         <div>
           <input required placeholder="Qual vai ser o nome da sua comunidade?" name="title" aria-label="Qual vai ser o nome da sua comunidade?" type="text" />

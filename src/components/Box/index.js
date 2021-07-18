@@ -55,6 +55,8 @@ export const Box = styled.div`
     background-color: #fca311;
     border-radius: 100px;
     color: #000;
+    margin-bottom: 1rem;
+    margin-right: 2rem;
   }
   img{
     border-radius: 1rem;

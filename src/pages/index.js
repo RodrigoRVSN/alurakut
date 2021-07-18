@@ -10,13 +10,18 @@ import FriendsWrap from '../components/FriendsWrap'
 import CommunityWrap from '../components/CommunityWrap'
 import useUser from '../hooks/useUser'
 import FormCommunity from '../components/FormCommunity'
-import { getAllCommunities } from '../lib/dato-cms'
+import { getAllCommunities } from '../lib/communities-cms'
+import { getAllComments } from '../lib/comments-cms'
+import FormComments from '../components/FormComments'
+import FieldComments from '../components/FieldComments'
 
 
 export default function Home(props) {
 
   const { user, setGithubUser, setIsAuth, follower, following } = useUser();
   const [communitys, setCommunitys] = useState([]);
+  const [comments, setComments] = useState([]);
+  const [isCreateCommunity, setIsCreateCommunity] = useState(true);
 
   useEffect(() => {
     setGithubUser(props.githubUser)
@@ -24,9 +29,10 @@ export default function Home(props) {
 
     async function getAll() {
       setCommunitys(await getAllCommunities())
+      setComments(await getAllComments())
     }
     getAll()
-  }, [])
+  }, [comments])
 
   return (
     <>
@@ -44,7 +50,15 @@ export default function Home(props) {
             <OrkutNostalgicIconSet />
           </Box>
           <Box>
-            <FormCommunity setCommunitys={setCommunitys} communitys={communitys} />
+            <h2 className="subTitle">O que você deseja fazer?</h2>
+            <button onClick={() => setIsCreateCommunity(true)}>Criar comunidade</button>
+            <button onClick={() => setIsCreateCommunity(false)}>Escrever um post</button>
+            {isCreateCommunity ? (
+              <FormCommunity setCommunitys={setCommunitys} communitys={communitys} />
+            ) : (
+              <FormComments setComments={setComments} comments={comments} />
+            )}
+            <FieldComments comments={comments} />
           </Box>
         </div>
 
