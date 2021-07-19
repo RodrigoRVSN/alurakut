@@ -7,7 +7,7 @@ export default async function getRequests(req, res) {
     const API_TOKEN = '2a561832e9baec09e4dac70a33f82c'
     const client = new SiteClient(API_TOKEN)
 
-    const registerCreated = client.items.create({
+    const registerCreated = await client.items.create({
       itemType: '976901',
       ...req.body
     })
