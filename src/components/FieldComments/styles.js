@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CommentsFieldWrap = styled('div')`
-  p{
+  section{
     border-top: 1px solid #D81D99;
     border-radius: 1rem;
     display: flex;

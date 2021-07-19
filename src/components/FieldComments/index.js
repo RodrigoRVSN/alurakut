@@ -8,13 +8,13 @@ function FieldComments(props) {
       <ul>
         {props.comments?.map((item) => {
           return (
-            <p key={item.id} >
+            <section key={item.text} >
               <div className='textArea'>
                 <img src={item.image} />
                 <h4>@{item.username}</h4>
               </div>
               <h5>{item.text}</h5>
-            </p>
+            </section>
           )
         })}
       </ul>

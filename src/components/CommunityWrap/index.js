@@ -10,7 +10,7 @@ function CommunityWrap(communitys) {
       <ul>
         {communitys?.communitys?.slice(0, amount).map((item) => {
           return (
-            <li key={item.title}>
+            <li key={item.imageUrl}>
               <a href={item.group} target="_blank">
                 <img src={item.imageUrl} />
 
