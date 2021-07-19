@@ -15,7 +15,7 @@ function FormComments(props) {
     fetch('/api/comments', {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(comments)
     }).then(async (res) => {

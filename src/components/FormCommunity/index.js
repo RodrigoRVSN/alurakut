@@ -13,7 +13,7 @@ function FormCommunity(props) {
     fetch('/api/communitys', {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(community)
     }).then(async (res) => {
